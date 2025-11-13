@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d51dfee911e6446b521362939b092b, type: 3}
+  m_Name: Combat Stance State_WolfBoss
+  m_EditorClassIdentifier: 
+  enemyCharacterAttacks:
+  - {fileID: 11400000, guid: c7213d246deaeab4590b45ade16abab8, type: 2}
+  - {fileID: 11400000, guid: 3eacc3f74990f4242afad64dcef329bf, type: 2}
+  - {fileID: 11400000, guid: 1a5a453d052d0824cbe5ef6239b5a279, type: 2}
+  - {fileID: 11400000, guid: a31a064d3f2449944b24949635615a14, type: 2}
+  - {fileID: 11400000, guid: 9fac57328bbd5c046a05ae22db4a1ce9, type: 2}
+  - {fileID: 11400000, guid: 356fd23f3e3306047a3543ba1db7d324, type: 2}
+  - {fileID: 11400000, guid: 668b499271d763f4c8293ee0de6e56c6, type: 2}
+  - {fileID: 11400000, guid: 7f8173d7422c6854aa3f037ca6b0be8b, type: 2}
+  chosenAttack: {fileID: 11400000, guid: c7213d246deaeab4590b45ade16abab8, type: 2}
+  previousAttack: {fileID: 11400000, guid: c7213d246deaeab4590b45ade16abab8, type: 2}
+  canPerformCombo: 0
+  chanceToPerformCombo: 25
+  maxEngagementDistance: 5
+  meleePreferDist: 4.5
+  rangedPreferDist: 5
+  pivotAngleThreshold: 35
+  weightCloseMelee: 20
+  weightFarRanged: 10
+  repeatPenalty: 20
