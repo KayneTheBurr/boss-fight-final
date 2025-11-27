@@ -1388,13 +1388,19 @@ MonoBehaviour:
   characterEffectsManager: {fileID: 0}
   characterSFXManager: {fileID: 0}
   characterUIManager: {fileID: 0}
+  characterName:
+    _type: 3
+    _f: 0
+    _i: 0
+    _b: 0
+    _s: 
+  characterGroup: 0
   isDead: 0
   isPerformingAction: 0
   isGrounded: 1
   canRotate: 1
   canMove: 1
   applyRootMotion: 0
-  characterGroup: 0
   horizontalMovement: 0
   verticalMovement: 0
   moveAmount: 0
@@ -1404,12 +1410,6 @@ MonoBehaviour:
   playerStatsManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
   playerEquipmentManager: {fileID: 0}
-  characterName:
-    _type: 3
-    _f: 0
-    _i: 0
-    _b: 0
-    _s: 
 --- !u!114 &1060461415439199384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1576,9 @@ MonoBehaviour:
     _i: 0
     _b: 0
     _s: 
+  baseCharacterHP: 350
+  baseCharacterStamina: 70
+  flatIceDefense: 0
   staminaRegenTimer: 0
   staminaRegenDelay: 2
   staminaTickTimer: 0
