@@ -32,11 +32,16 @@ public class EnemyCombatManager : CharacterCombatManager
     }
     protected override void Start()
     {
+        SetDamageColliders();
         foreach(var attack in enemy.combatStance.enemyCharacterAttacks)
         {
             availableAttacks.Add(attack);
             cooldownTracker.Add(attack, 0);
         }
+    }
+    public virtual void SetDamageColliders()
+    {
+
     }
     public void FindATargetViaLineOfSight(EnemyCharacterManager aiCharacter)
     {

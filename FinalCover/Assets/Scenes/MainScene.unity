@@ -4147,7 +4147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3745677115280297190, guid: 009bfdcbf43056e4baacce4494b47114, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6016544527566565682, guid: 009bfdcbf43056e4baacce4494b47114, type: 3}
       propertyPath: slashRange
@@ -10504,10 +10504,10 @@ MonoBehaviour:
   myTargetDestination: {x: 0, y: 0, z: 0}
   currentState: {fileID: 0}
   inCombat: 0
-  idle: {fileID: 0}
-  pursueTarget: {fileID: 0}
-  combatStance: {fileID: 0}
-  attack: {fileID: 0}
+  idle: {fileID: 11400000, guid: cd99d62f9d91c144293cf560ddbcce93, type: 2}
+  pursueTarget: {fileID: 11400000, guid: 8092b20f4b60da64da90b63bd0899705, type: 2}
+  combatStance: {fileID: 11400000, guid: a84e0ba0c9d0bae4ebad092c7253600e, type: 2}
+  attack: {fileID: 11400000, guid: bbfb1a532ed23b2468f761a97532943b, type: 2}
   isBoss: 0
   bossNameLabel: {fileID: 0}
   bossNameLabelShadow: {fileID: 0}
@@ -12133,9 +12133,9 @@ SceneRoots:
   - {fileID: 2273707570258769394}
   - {fileID: 2701933688560976303}
   - {fileID: 1123279509}
+  - {fileID: 4936484260879641737}
   - {fileID: 52155209}
   - {fileID: 138368868}
   - {fileID: 1146552223}
   - {fileID: 1443410842}
   - {fileID: 1749945228}
-  - {fileID: 4936484260879641737}
