@@ -20,6 +20,9 @@ public class CharacterManager : MonoBehaviour
     [Header("Character Name")]
     public ObservableVariable characterName = new ObservableVariable("");
 
+    [Header("Active")]
+    public ObservableVariable isActive = new ObservableVariable(true);
+
     [Header("Character Group")]
     public CharacterGroup characterGroup;
 
@@ -56,11 +59,12 @@ public class CharacterManager : MonoBehaviour
     }
     protected virtual void OnEnable()
     {
-        
+        OnIsActiveChanged(false, isActive.GetBool());
+        isActive.OnBoolChanged += OnIsActiveChanged;
     }
     protected virtual void OnDisable()
     {
-
+        isActive.OnBoolChanged -= OnIsActiveChanged;
     }
     protected virtual void Update()
     {
@@ -103,6 +107,10 @@ public class CharacterManager : MonoBehaviour
     {
         //Debug.Log("IsMoving changed!");
         animator.SetBool("IsMoving", characterMovementManager.isMoving.GetBool());
+    }
+    public virtual void OnIsActiveChanged(bool oldStatus, bool newStatus)
+    {
+        gameObject.SetActive(isActive.GetBool());
     }
     public virtual IEnumerator HandleDeathEvents(bool manuallySelectDeathAnim = false)
     {
