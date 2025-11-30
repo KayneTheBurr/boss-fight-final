@@ -33,15 +33,46 @@ public class EnemyCombatManager : CharacterCombatManager
     protected override void Start()
     {
         SetDamageColliders();
+
         foreach(var attack in enemy.combatStance.enemyCharacterAttacks)
         {
             availableAttacks.Add(attack);
             cooldownTracker.Add(attack, 0);
         }
     }
+    protected virtual void LateUpdate()
+    {
+
+    }
     public virtual void SetDamageColliders()
     {
 
+    }
+    public virtual void UpdateTargetInfo()
+    {
+        //set defaults if no target
+        if (currentTarget == null)
+        {
+            targetDirection = Vector3.zero;
+            distanceFromTarget = Mathf.Infinity;
+            viewableAngle = 0;
+            return;
+        }
+
+        targetDirection = currentTarget.transform.position - enemy.transform.position;
+        targetDirection.y = 0;
+
+        distanceFromTarget = targetDirection.magnitude;
+
+        if (distanceFromTarget > 0.01f)
+        {
+            Vector3 dir = targetDirection / distanceFromTarget;
+            viewableAngle = Vector3.SignedAngle(enemy.transform.forward, dir, Vector3.up);
+        }
+        else
+        {
+            viewableAngle = 0;
+        }
     }
     public void FindATargetViaLineOfSight(EnemyCharacterManager aiCharacter)
     {
@@ -95,7 +126,6 @@ public class EnemyCombatManager : CharacterCombatManager
             }
         }
     }
-
     public virtual void PivotTowardsTarget(EnemyCharacterManager aICharacter)
     {
         //play a pivot animation depending on viewabe angle of target character
@@ -134,15 +164,6 @@ public class EnemyCombatManager : CharacterCombatManager
             aICharacter.characterAnimationManager.PlayTargetActionAnimation("Turn_L180_01", true);
         }
     }
-
-    public void RotateTowardsAgent(EnemyCharacterManager aiCharacter)
-    {
-        if (aiCharacter.enemyMovementManager.isMoving.GetBool())
-        {
-            aiCharacter.transform.rotation = aiCharacter.navMeshAgent.transform.rotation;
-        }
-    }
-
     public void RotateTowardsTargetWhileAttacking(EnemyCharacterManager aiCharacter, EnemyAttackAction currentAttack)
     {
         if (currentTarget == null) return;
@@ -163,7 +184,6 @@ public class EnemyCombatManager : CharacterCombatManager
         aiCharacter.transform.rotation = Quaternion.RotateTowards(
             aiCharacter.transform.rotation, targetRotation, currentAttack.attackTrackingSpeed * Time.deltaTime);
     }
-
     public void HandleActionRecovery(EnemyCharacterManager aICharacter)
     {
         if (actionRecoveryTimer > 0)
@@ -174,7 +194,6 @@ public class EnemyCombatManager : CharacterCombatManager
             }
         }
     }
-
     public bool HasRangedAttack()
     {
         for (int i = 0; i < availableAttacks.Count; i++)
@@ -186,7 +205,6 @@ public class EnemyCombatManager : CharacterCombatManager
         }
         return false;
     }
-
     public bool HasRangedAttackAvailable(Vector3 origin, Vector3 targetPos)
     {
         for (int i = 0; i < availableAttacks.Count; i++)
@@ -213,7 +231,6 @@ public class EnemyCombatManager : CharacterCombatManager
         //Debug.Log(false);
         return false;
     }
-
     public void StartCooldown(EnemyAttackAction action)
     {
         if (!action) return;

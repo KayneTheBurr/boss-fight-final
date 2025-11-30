@@ -302,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 52155204}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212326, y: 0.000000043202654, z: -0.0000000066495187, w: 0.98836154}
-  m_LocalPosition: {x: -15.28, y: 2.853529, z: 4.061415}
+  m_LocalPosition: {x: -3.4, y: 2.853529, z: -0.7385845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7817,7 +7817,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47936e26ea410a742a81ecf40afec92f, type: 3}
+  - {fileID: -7588772447470521199, guid: c74ee470839ec3c489266cd5deb7fcd2, type: 3}
   - {fileID: 2100000, guid: 3b00177725a7d674e83e487fb15e9683, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -8497,7 +8497,7 @@ GameObject:
   - component: {fileID: 4936484260879641737}
   - component: {fileID: 3456819411175835390}
   - component: {fileID: 4936484260879641746}
-  - component: {fileID: 4936484260879641745}
+  - component: {fileID: 4936484260879641747}
   - component: {fileID: 4936484260879641744}
   - component: {fileID: 4936484260879641743}
   - component: {fileID: 4936484260879641742}
@@ -9891,7 +9891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641671121634132672, guid: efefec6b0c4dd094e9cb20cfd97c26c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.28
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 7641671121634132672, guid: efefec6b0c4dd094e9cb20cfd97c26c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9899,7 +9899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641671121634132672, guid: efefec6b0c4dd094e9cb20cfd97c26c2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.83
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 7641671121634132672, guid: efefec6b0c4dd094e9cb20cfd97c26c2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10061,7 +10061,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4486337301015295131, guid: ad0218b2c3a77b24bbfaba037a44f5d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.28
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 4486337301015295131, guid: ad0218b2c3a77b24bbfaba037a44f5d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10069,7 +10069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4486337301015295131, guid: ad0218b2c3a77b24bbfaba037a44f5d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.061415
+      value: -0.7385845
       objectReference: {fileID: 0}
     - target: {fileID: 4486337301015295131, guid: ad0218b2c3a77b24bbfaba037a44f5d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10249,8 +10249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707068130855884514}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7265945, z: -0, w: 0.6870667}
-  m_LocalPosition: {x: 5.939343, y: 0.0000019073486, z: 1.8782581}
+  m_LocalRotation: {x: -0, y: -0.68890065, z: -0, w: -0.7248558}
+  m_LocalPosition: {x: -0.16999345, y: 0.0000019073486, z: 3.6927102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10259,7 +10259,7 @@ Transform:
   - {fileID: 6229400709479954379}
   - {fileID: 879325621}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -93.203, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -272.914, z: 0}
 --- !u!114 &4936484260879641738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10339,12 +10339,12 @@ MonoBehaviour:
   maxHealth:
     _type: 1
     _f: 0
-    _i: 100
+    _i: 1000
     _b: 0
     _s: 
   currentHealth:
     _type: 0
-    _f: 100
+    _f: 1000
     _i: 0
     _b: 0
     _s: 
@@ -10402,7 +10402,7 @@ MonoBehaviour:
   groundCheckSphereRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 257
   gravityForce: -9.81
   yVelocity: {x: 0, y: 0, z: 0}
   groundedYVelocity: -20
@@ -10418,41 +10418,6 @@ MonoBehaviour:
   isJumping: 0
   isDodging: 0
   isFlying: 0
---- !u!114 &4936484260879641745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707068130855884514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c47db68f0277ed04d8d796e435b5f7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentAttackType: 0
-  currentTarget: {fileID: 0}
-  lastAttackAnimation: 
-  lockOnTransform: {fileID: 0}
-  canPerformRollingAttack: 0
-  canPerformBackStepAttack: 0
-  isInvulnerable: 0
-  isChargingAttack:
-    _type: 2
-    _f: 0
-    _i: 0
-    _b: 0
-    _s: 
-  isLockedOn: 0
-  chargeTimer: 0
-  actionRecoveryTimer: 0
-  viewableAngle: 0
-  distanceFromTarget: 0
-  targetDirection: {x: 0, y: 0, z: 0}
-  detectionRadius: 10
-  minFOV: -35
-  maxFOV: 35
-  availableAttacks: []
 --- !u!114 &4936484260879641746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10479,7 +10444,7 @@ MonoBehaviour:
     _f: 0
     _i: 0
     _b: 0
-    _s: 
+    _s: Adrianna, Architect of Evolution
   isActive:
     _type: 2
     _f: 0
@@ -10502,7 +10467,7 @@ MonoBehaviour:
   enemyStatsManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   myTargetDestination: {x: 0, y: 0, z: 0}
-  currentState: {fileID: 0}
+  currentState: {fileID: 11400000, guid: cd99d62f9d91c144293cf560ddbcce93, type: 2}
   inCombat: 0
   idle: {fileID: 11400000, guid: cd99d62f9d91c144293cf560ddbcce93, type: 2}
   pursueTarget: {fileID: 11400000, guid: 8092b20f4b60da64da90b63bd0899705, type: 2}
@@ -10513,8 +10478,71 @@ MonoBehaviour:
   bossNameLabelShadow: {fileID: 0}
   bossPanel: {fileID: 0}
   bossHPBar: {fileID: 0}
-  bossID: 
+  bossID: Adrianna_001
   hasBeenDefeated: 0
+--- !u!114 &4936484260879641747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707068130855884514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568be4bc0d99e134999548c84440c319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAttackType: 0
+  currentTarget: {fileID: 0}
+  lastAttackAnimation: 
+  lockOnTransform: {fileID: 0}
+  canPerformRollingAttack: 0
+  canPerformBackStepAttack: 0
+  isInvulnerable: 0
+  isChargingAttack:
+    _type: 2
+    _f: 0
+    _i: 0
+    _b: 0
+    _s: 
+  isLockedOn: 0
+  chargeTimer: 0
+  actionRecoveryTimer: 0
+  viewableAngle: 0
+  distanceFromTarget: 0
+  targetDirection: {x: 0, y: 0, z: 0}
+  detectionRadius: 10
+  minFOV: -35
+  maxFOV: 35
+  availableAttacks: []
+  idealRange: 4
+  minRange: 2.5
+  maxRange: 6
+  circleOffsetDistance: 2
+  circleDirChangeInterval: 3
+  dodgeChanceOnPlayerAttack: 0.3
+  dodgeCooldown: 1.5
+  circleDir: 1
+  currentPhase: 0
+  rightSwordCollider: {fileID: 0}
+  leftSwordCollider: {fileID: 0}
+  physicalDamage: 15
+  lightAttack_01_DamageModifier: 1
+  lightAttack_02_DamageModifier: 1.2
+  lightAttack_03_DamageModifier: 1
+  drillDash_DamageModifier: 1.5
+  aoeSpinSlash_DamageModifier: 1.5
+  turnRightIdle: Idle_Turn_R90
+  turnLeftIdle: Idle_Turn_L90
+  turn180Idle: Idle_Turn_180
+  turnRightWalk: Walk_Turn_R90
+  turnLeftWalk: Walk_Turn_L90
+  turn180Walk: Walk_Turn_180
+  turnRightJog: Jog_Turn_R90
+  turnLeftJog: Jog_Turn_L90
+  turn180Jog: Jog_Turn_180
+  arenaRadius: 16
+  arenaCenter: {fileID: 0}
 --- !u!4 &4972723965654053075
 Transform:
   m_ObjectHideFlags: 0

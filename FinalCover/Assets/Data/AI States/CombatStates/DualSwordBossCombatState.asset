@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d51dfee911e6446b521362939b092b, type: 3}
+  m_Script: {fileID: 11500000, guid: 88e38d97cde748d4b91ec5cad8f503a9, type: 3}
   m_Name: DualSwordBossCombatState
   m_EditorClassIdentifier: 
   enemyCharacterAttacks:
+  - {fileID: 11400000, guid: fd1fade0a30018d419531fe97fe200d3, type: 2}
+  - {fileID: 11400000, guid: dd146c90fbb1160469b26db835c8508d, type: 2}
   - {fileID: 11400000, guid: f57321cce0cf4794ab65fa1c953f3bca, type: 2}
   - {fileID: 11400000, guid: cd8ea352ed6e37145bcd496edd2adeb4, type: 2}
   - {fileID: 11400000, guid: f0e71f3bd7c800b4791fa21553aabb58, type: 2}
-  - {fileID: 11400000, guid: fd1fade0a30018d419531fe97fe200d3, type: 2}
-  - {fileID: 11400000, guid: dd146c90fbb1160469b26db835c8508d, type: 2}
   chosenAttack: {fileID: 11400000, guid: dd146c90fbb1160469b26db835c8508d, type: 2}
-  previousAttack: {fileID: 0}
+  previousAttack: {fileID: 11400000, guid: dd146c90fbb1160469b26db835c8508d, type: 2}
   canPerformCombo: 0
   chanceToPerformCombo: 25
   maxEngagementDistance: 5

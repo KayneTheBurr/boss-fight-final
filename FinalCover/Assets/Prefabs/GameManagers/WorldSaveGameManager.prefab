@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1902581465853765123}
+  - component: {fileID: 90399489738610126}
   m_Layer: 0
   m_Name: WorldSaveGameManager
   m_TagString: Untagged
@@ -31,3 +32,261 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90399489738610126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428922554498096689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac651d7df3771834fba34aec4b48e02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  saveGame: 0
+  loadGame: 0
+  worldSceneIndex: 1
+  currentCharacterData:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot01:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot02:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot03:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot04:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot05:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot06:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot07:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot08:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot09:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 
+  characterSlot10:
+    sceneIndexNumber: 1
+    characterName: Character
+    timePlayedSec: 0
+    xPos: 0
+    yPos: 0
+    zPos: 0
+    heart: 0
+    strength: 0
+    agility: 0
+    arcana: 0
+    essence: 0
+    cunning: 0
+    omen: 0
+    currentHealth: 0
+    currentStamina: 0
+    bossesAwakened:
+      m_Keys: []
+      m_Values: 
+    bossesDefeated:
+      m_Keys: []
+      m_Values: 

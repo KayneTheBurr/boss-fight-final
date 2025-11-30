@@ -15,8 +15,8 @@ public class CombatStanceState : AIStates
     public List<EnemyAttackAction> enemyCharacterAttacks; //list of all possible attacks the character CAN do
     private List<EnemyAttackAction> potentialAttacks = new(); //all attacks possible in the situation based on angle/distance
     private List<int> weights = new();
-    [SerializeField] private EnemyAttackAction chosenAttack;
-    [SerializeField] private EnemyAttackAction previousAttack;
+    [SerializeField] public EnemyAttackAction chosenAttack;
+    [SerializeField] public EnemyAttackAction previousAttack;
     protected bool hasAttacked = false;
 
     [Header("Combo")]
@@ -70,7 +70,7 @@ public class CombatStanceState : AIStates
         }
 
         //rotate to face our target
-        cm.RotateTowardsAgent(enemy);
+        enemy.enemyMovementManager.RotateTowardsAgent(enemy);
 
         var pick = GetNewAttack(enemy);
 

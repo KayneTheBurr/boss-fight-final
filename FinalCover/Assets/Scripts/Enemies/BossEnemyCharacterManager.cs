@@ -10,7 +10,7 @@ public class BossEnemyCharacterManager : EnemyCharacterManager
     {
         base.Start();
 
-        if(WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.ContainsKey(bossID))
+        if(!WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.ContainsKey(bossID))
         {
             WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.Add(bossID, false);
             WorldSaveGameManager.instance.currentCharacterData.bossesDefeated.Add(bossID, false);
