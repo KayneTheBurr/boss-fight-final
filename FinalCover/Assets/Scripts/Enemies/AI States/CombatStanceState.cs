@@ -28,6 +28,7 @@ public class CombatStanceState : AIStates
     public float maxEngagementDistance = 5; //The distance we have to be away from target before returning to pursue state
 
     [Header("Tunable Constants")]
+    public float turnThreshold = 35f;
     [SerializeField] float meleePreferDist = 2.5f;
     [SerializeField] float rangedPreferDist = 5f;
     [SerializeField] float pivotAngleThreshold = 35f;
@@ -62,7 +63,7 @@ public class CombatStanceState : AIStates
         //get the ai character to turn and face the target when its outisde its FOV
         if (!enemy.enemyMovementManager.isMoving.GetBool())
         {
-            if (Mathf.Abs(cm.viewableAngle) > 35f)
+            if (Mathf.Abs(cm.viewableAngle) > turnThreshold)
             {
                 cm.PivotTowardsTarget(enemy);
                 return this; //rotate this tick then try again
@@ -70,7 +71,7 @@ public class CombatStanceState : AIStates
         }
 
         //rotate to face our target
-        enemy.enemyMovementManager.RotateTowardsAgent(enemy);
+        enemy.enemyMovementManager.RotateWithMovement(enemy);
 
         var pick = GetNewAttack(enemy);
 
@@ -134,7 +135,7 @@ public class CombatStanceState : AIStates
         //try to turn?
         if (potentialAttacks.Count <= 0)
         {
-            if(Mathf.Abs(angle) >= 35)
+            if(Mathf.Abs(angle) >= turnThreshold)
             {
                 cm.PivotTowardsTarget(enemy);
                 return null;

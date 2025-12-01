@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovementManager : CharacterMovementManager
 {
     EnemyCharacterManager enemy;
+
+    [SerializeField] float rotationSpeed = 5f;
 
     protected override void Awake()
     {
@@ -14,12 +17,36 @@ public class EnemyMovementManager : CharacterMovementManager
         base.Update();
         UpdateAnimatorMovementValues();
     }
-    public void RotateTowardsAgent(EnemyCharacterManager enemy)
+    public void RotateWithMovement(EnemyCharacterManager enemy)
     {
         if (enemy.enemyMovementManager.isMoving.GetBool()) //if the ai character is moving do this 
         {
             enemy.transform.rotation = enemy.navMeshAgent.transform.rotation;
         }
+    }
+    public void RotateToFaceTarget(EnemyCharacterManager enemy)
+    {
+        var cm = enemy.enemyCombatManager;
+
+        if (cm == null || cm.currentTarget == null) return;
+
+        if (!enemy.canRotate) return;
+
+        Vector3 dir = cm.currentTarget.transform.position - enemy.transform.position;
+        dir.y = 0f;
+
+        if (dir.sqrMagnitude < 0.0001f)
+            return;
+
+        dir.Normalize();
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        Quaternion finalRot = Quaternion.Slerp(
+            enemy.transform.rotation,
+            targetRot,
+            rotationSpeed * Time.deltaTime
+        );
+
+        enemy.transform.rotation = finalRot;
     }
     private void UpdateAnimatorMovementValues()
     {

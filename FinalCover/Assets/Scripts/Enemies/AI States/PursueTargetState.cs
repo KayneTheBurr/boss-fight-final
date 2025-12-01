@@ -26,7 +26,7 @@ public class PursueTargetState : AIStates
             enemy.enemyCombatManager.PivotTowardsTarget(enemy);
         }
 
-        enemy.enemyMovementManager.RotateTowardsAgent(enemy);
+        enemy.enemyMovementManager.RotateWithMovement(enemy);
 
         //option 1 (better for ranged enemies or melee/ranged hybrid enemies)
         

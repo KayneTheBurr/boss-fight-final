@@ -23,6 +23,7 @@ MonoBehaviour:
   canPerformCombo: 0
   chanceToPerformCombo: 25
   maxEngagementDistance: 5
+  turnThreshold: 45
   meleePreferDist: 2.5
   rangedPreferDist: 5
   pivotAngleThreshold: 35

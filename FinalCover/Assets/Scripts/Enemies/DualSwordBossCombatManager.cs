@@ -18,7 +18,6 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
     [SerializeField] public float drillDash_DamageModifier = 1.5f;
     [SerializeField] public float aoeSpinSlash_DamageModifier = 1.5f;
 
-
     [Header("Turn Values")]
     [SerializeField] string turnRightIdle = "Idle_Turn_R90";
     [SerializeField] string turnLeftIdle = "Idle_Turn_L90";
@@ -30,7 +29,6 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
     [SerializeField] string turnLeftJog = "Jog_Turn_L90";
     [SerializeField] string turn180Jog = "Jog_Turn_180";
 
-
     [Header("Arena Settings")]
     [SerializeField] private float arenaRadius = 16f;
     public Transform arenaCenter;
@@ -41,7 +39,6 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
         
     }
 
-    
 
     //Collider Management
     public override void SetDamageColliders()
@@ -79,7 +76,7 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
     //Pivot and Quickturn
     public override void PivotTowardsTarget(EnemyCharacterManager wolfChar)
     {
-        Debug.Log("Try to turn to face player");
+        
     }
 
 

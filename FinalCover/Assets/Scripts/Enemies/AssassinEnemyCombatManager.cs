@@ -17,6 +17,12 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     [HideInInspector] public float circleDir = 1f;
     private float circleTimer = 0f;
     private float dodgeCooldownTimer = 0f;
+
+    protected override void Start()
+    {
+        base.Start();
+        enemy.navMeshAgent.updateRotation = false;
+    }
     protected override void LateUpdate()
     {
         base.LateUpdate();
@@ -26,8 +32,6 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     public void HandleAssassinMovement(EnemyCharacterManager enemy)
     {
         if (currentTarget == null) return;
-
-        UpdateTargetInfo();
 
         targetDirection /= distanceFromTarget;
 
@@ -53,7 +57,7 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
             + perp * circleOffsetDistance;
 
         enemy.navMeshAgent.SetDestination(desiredPos);
-        enemy.enemyMovementManager.RotateTowardsAgent(enemy);
+        enemy.enemyMovementManager.RotateToFaceTarget(enemy);
     }
 
     public virtual bool TryDodge(EnemyCharacterManager enemy)
@@ -66,5 +70,9 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
 
         dodgeCooldownTimer = dodgeCooldown;
         return true;
+    }
+    public void PerformDodge(EnemyCharacterManager enemy)
+    {
+        Debug.Log("I'm trying to dodge!");
     }
 }

@@ -31,7 +31,7 @@ public class AssassinCombatState : CombatStanceState
 
         if (!enemy.enemyMovementManager.isMoving.GetBool())
         {
-            if (Mathf.Abs(cm.viewableAngle) > 35f)
+            if (Mathf.Abs(cm.viewableAngle) > turnThreshold)
             {
                 cm.PivotTowardsTarget(enemy);
                 return this; //rotate this tick then try again
@@ -41,19 +41,25 @@ public class AssassinCombatState : CombatStanceState
         cm.HandleAssassinMovement(enemy);
 
         //maybe see what player is doing and try to dodge here?
-
-
-        // choose attack
-        var newAttack = GetNewAttack(enemy);
-        if (newAttack != null)
+        if(cm.currentTarget.isPerformingAction && cm.TryDodge(enemy))
         {
-            chosenAttack = newAttack;
-            previousAttack = chosenAttack;
-            hasAttacked = true;
-
-            enemy.attack.currentAttack = chosenAttack;
-            return SwitchState(enemy, enemy.attack);
+            cm.PerformDodge(enemy);
         }
+
+        Debug.DrawLine(enemy.transform.position + Vector3.up,
+               enemy.transform.position + enemy.transform.right * 2f, Color.magenta);
+
+        //// choose attack
+        //var newAttack = GetNewAttack(enemy);
+        //if (newAttack != null)
+        //{
+        //    chosenAttack = newAttack;
+        //    previousAttack = chosenAttack;
+        //    hasAttacked = true;
+
+        //    enemy.attack.currentAttack = chosenAttack;
+        //    return SwitchState(enemy, enemy.attack);
+        //}
 
         // return to pursue if the player gets to far away
         if (cm.distanceFromTarget > maxEngagementDistance)

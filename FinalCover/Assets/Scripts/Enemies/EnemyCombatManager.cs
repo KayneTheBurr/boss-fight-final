@@ -48,32 +48,7 @@ public class EnemyCombatManager : CharacterCombatManager
     {
 
     }
-    public virtual void UpdateTargetInfo()
-    {
-        //set defaults if no target
-        if (currentTarget == null)
-        {
-            targetDirection = Vector3.zero;
-            distanceFromTarget = Mathf.Infinity;
-            viewableAngle = 0;
-            return;
-        }
-
-        targetDirection = currentTarget.transform.position - enemy.transform.position;
-        targetDirection.y = 0;
-
-        distanceFromTarget = targetDirection.magnitude;
-
-        if (distanceFromTarget > 0.01f)
-        {
-            Vector3 dir = targetDirection / distanceFromTarget;
-            viewableAngle = Vector3.SignedAngle(enemy.transform.forward, dir, Vector3.up);
-        }
-        else
-        {
-            viewableAngle = 0;
-        }
-    }
+    
     public void FindATargetViaLineOfSight(EnemyCharacterManager aiCharacter)
     {
         if (currentTarget != null) return;
