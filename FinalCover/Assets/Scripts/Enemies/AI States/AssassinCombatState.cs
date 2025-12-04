@@ -33,6 +33,7 @@ public class AssassinCombatState : CombatStanceState
         {
             if (Mathf.Abs(cm.viewableAngle) > turnThreshold)
             {
+                Debug.Log("Angle big enough to try and turn!");
                 cm.PivotTowardsTarget(enemy);
                 return this; //rotate this tick then try again
             }
@@ -41,29 +42,45 @@ public class AssassinCombatState : CombatStanceState
         cm.HandleAssassinMovement(enemy);
 
         //maybe see what player is doing and try to dodge here?
-        if(cm.currentTarget.isPerformingAction && cm.TryDodge(enemy))
+        if(cm.currentTarget != null && cm.currentTarget.isPerformingAction)
         {
-            cm.PerformDodge(enemy);
+            //only get to roll once for dodge per attack
+            if (!cm.hasAttemptedDodgeThisAttack)
+            {
+                cm.hasAttemptedDodgeThisAttack = true;
+
+                if (cm.TryDodge(enemy))
+                {
+                    cm.PerformDodge(enemy);
+                    return this;
+                }
+            }
         }
-
-        Debug.DrawLine(enemy.transform.position + Vector3.up,
-               enemy.transform.position + enemy.transform.right * 2f, Color.magenta);
-
-        //// choose attack
-        //var newAttack = GetNewAttack(enemy);
-        //if (newAttack != null)
-        //{
-        //    chosenAttack = newAttack;
-        //    previousAttack = chosenAttack;
-        //    hasAttacked = true;
-
-        //    enemy.attack.currentAttack = chosenAttack;
-        //    return SwitchState(enemy, enemy.attack);
-        //}
-
+        else
+        {
+            // target is not performing an action anymore, reset for next attack
+            cm.hasAttemptedDodgeThisAttack = false;
+        }
+    
         // return to pursue if the player gets to far away
         if (cm.distanceFromTarget > maxEngagementDistance)
             return SwitchState(enemy, enemy.pursueTarget);
+
+        if (cm.actionRecoveryTimer > 0) return this;
+
+        // choose attack
+        var newAttack = GetNewAttack(enemy);
+        if (newAttack != null)
+        {
+            chosenAttack = newAttack;
+            previousAttack = chosenAttack;
+            hasAttacked = true;
+
+            enemy.attack.currentAttack = chosenAttack;
+            return SwitchState(enemy, enemy.attack);
+        }
+
+
 
         //else stay in combat until attack made
         return this;

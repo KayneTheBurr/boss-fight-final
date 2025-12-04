@@ -24,6 +24,13 @@ public class EnemyAttackAction : ScriptableObject
     public float minAttackDistance = 0;
     public float maxAttackDistance = 3;
 
+    [Header("Manual Motion (Rootmotion override)")]
+    public bool useManualMotion = false;
+    public float manualMotionDistance = 1f;
+    public float manualMotionDurationNormalized = 1f;
+    public ManualMotionDirection manualMotionDirection = ManualMotionDirection.LocalForward;
+    public AnimationCurve manualMotionCurve;
+
     public void AttemptToPerformAction(EnemyCharacterManager enemy)
     {
         enemy.characterAnimationManager.PlayTargetActionAnimation(attackAnimation, true);

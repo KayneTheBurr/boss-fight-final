@@ -13,6 +13,7 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     [Header("Assassin Dodge Tuning")]
     public float dodgeChanceOnPlayerAttack = 0.3f;
     public float dodgeCooldown = 1.5f;
+    public bool hasAttemptedDodgeThisAttack = false;
 
     [HideInInspector] public float circleDir = 1f;
     private float circleTimer = 0f;
@@ -63,7 +64,9 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     public virtual bool TryDodge(EnemyCharacterManager enemy)
     {
         if (dodgeCooldownTimer > 0f) return false;
-        if (Random.value > dodgeChanceOnPlayerAttack) return false;
+        var dodgeRoll = Random.value;
+        //Debug.Log(dodgeRoll);
+        if (dodgeRoll > dodgeChanceOnPlayerAttack) return false;
 
         // pick dodge direction based on viewableAngle / some rule
         // animation and root motion handled by animation system
@@ -71,7 +74,7 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
         dodgeCooldownTimer = dodgeCooldown;
         return true;
     }
-    public void PerformDodge(EnemyCharacterManager enemy)
+    public virtual void PerformDodge(EnemyCharacterManager enemy)
     {
         Debug.Log("I'm trying to dodge!");
     }

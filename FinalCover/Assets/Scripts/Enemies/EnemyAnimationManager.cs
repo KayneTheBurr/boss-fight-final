@@ -12,11 +12,14 @@ public class EnemyAnimationManager : CharacterAnimationManager
     private void OnAnimatorMove()
     {
         if (!aiCharacter.isGrounded) return;
+        if (!aiCharacter.applyRootMotion && aiCharacter.isPerformingAction)
+        {
+            aiCharacter.enemyMovementManager.HandleManualMotion();
+            return;
+        }
 
         Vector3 velocity = aiCharacter.animator.deltaPosition;
-
         aiCharacter.characterController.Move(velocity);
         aiCharacter.transform.rotation *= aiCharacter.animator.deltaRotation;
-
     }
 }

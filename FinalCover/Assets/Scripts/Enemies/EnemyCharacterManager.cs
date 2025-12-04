@@ -19,7 +19,7 @@ public class EnemyCharacterManager : CharacterManager
     public Vector3 myTargetDestination;
 
     [Header("Current State")]
-    [SerializeField] AIStates currentState;
+    public AIStates currentState;
     public bool inCombat;
 
     [Header("States")]

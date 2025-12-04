@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DrillDash_01
   m_EditorClassIdentifier: 
   attackAnimation: DrillDash_Attack_01
-  enemyAttackType: 0
-  attackType: 0
+  enemyAttackType: 1
+  attackType: 6
   comboAction: {fileID: 0}
   attackTrackingSpeed: 20
   attackWeight: 0
@@ -25,3 +25,13 @@ MonoBehaviour:
   maxAttackAngle: 35
   minAttackDistance: 0
   maxAttackDistance: 3
+  useManualMotion: 0
+  manualMotionDistance: 1
+  manualMotionDurationNormalized: 1
+  manualMotionDirection: 0
+  manualMotionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

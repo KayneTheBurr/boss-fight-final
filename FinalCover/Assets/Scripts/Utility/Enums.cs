@@ -19,6 +19,17 @@ public enum BossPhase
     Phase2,
     Phase3
 }
+public enum ManualMotionDirection
+{
+    LocalForward,
+    LocalBackward,
+    LocalLeft,
+    LocalRight,
+    LocalUp,
+    LocalDown,
+    TowardsTarget,
+    AwayFromTarget
+}
 public enum WeaponClass
 {
     Fists,
