@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139e14c97d3cc04f9c44b1af00a00f6, type: 3}
   m_Name: AOE_Spin_01
   m_EditorClassIdentifier: 
-  attackAnimation: AOE_SpinAttack01
+  attackAnimation: AOE_SpinAttack_Start_01
   enemyAttackType: 0
   attackType: 5
   comboAction: {fileID: 0}
@@ -26,12 +26,32 @@ MonoBehaviour:
   minAttackDistance: 0
   maxAttackDistance: 3
   useManualMotion: 0
+  durationFromClipLength: 1
+  manualMovementDuration: 1
   manualMotionDistance: 1
   manualMotionDurationNormalized: 1
   manualMotionDirection: 0
   manualMotionCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

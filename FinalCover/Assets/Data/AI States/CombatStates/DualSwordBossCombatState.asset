@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: DualSwordBossCombatState
   m_EditorClassIdentifier: 
   enemyCharacterAttacks:
-  - {fileID: 11400000, guid: fd1fade0a30018d419531fe97fe200d3, type: 2}
   - {fileID: 11400000, guid: dd146c90fbb1160469b26db835c8508d, type: 2}
   - {fileID: 11400000, guid: f57321cce0cf4794ab65fa1c953f3bca, type: 2}
   - {fileID: 11400000, guid: cd8ea352ed6e37145bcd496edd2adeb4, type: 2}

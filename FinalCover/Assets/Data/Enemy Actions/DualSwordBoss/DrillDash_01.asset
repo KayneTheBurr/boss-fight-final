@@ -12,26 +12,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139e14c97d3cc04f9c44b1af00a00f6, type: 3}
   m_Name: DrillDash_01
   m_EditorClassIdentifier: 
-  attackAnimation: DrillDash_Attack_01
+  attackAnimation: DrillDash_Start_01
   enemyAttackType: 1
   attackType: 6
   comboAction: {fileID: 0}
   attackTrackingSpeed: 20
-  attackWeight: 0
-  cooldownTime: 0
+  attackWeight: 100
+  cooldownTime: 10
   requiresLOS: 1
-  actionRecoveryTime: 1.5
+  actionRecoveryTime: 1.8
   minAttackAngle: -35
   maxAttackAngle: 35
-  minAttackDistance: 0
-  maxAttackDistance: 3
-  useManualMotion: 0
-  manualMotionDistance: 1
+  minAttackDistance: 4
+  maxAttackDistance: 10
+  useManualMotion: 1
+  durationFromClipLength: 0
+  manualMovementDuration: 1.2
+  manualMotionDistance: 8
   manualMotionDurationNormalized: 1
-  manualMotionDirection: 0
+  manualMotionDirection: 6
   manualMotionCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -7.988476
+      outSlope: -7.988476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.18458079
+    - serializedVersion: 3
+      time: 0.0524124
+      value: -0.42967796
+      inSlope: 1.3383144
+      outSlope: 1.3383144
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.30001044
+      value: -0.0006029606
+      inSlope: 1.4179248
+      outSlope: 1.4179248
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3639444
+      outWeight: 0.14709464
+    - serializedVersion: 3
+      time: 0.9010806
+      value: 0.9288512
+      inSlope: 1.2313808
+      outSlope: 1.2313808
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11206339
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.7192605
+      outSlope: 0.7192605
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

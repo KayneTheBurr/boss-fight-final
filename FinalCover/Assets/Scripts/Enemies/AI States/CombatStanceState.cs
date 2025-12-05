@@ -115,21 +115,25 @@ public class CombatStanceState : AIStates
         {
             if (attack == null) continue;
             if(!cm.AttackOffCooldown(attack)) continue;
-
+            
             //check range from enemy to target 
             if (dist < attack.minAttackDistance || dist > attack.maxAttackDistance) continue;
-
+            
             //check the attack angle, if outside FOV for the attack check the next attack
-            if(angle < attack.minAttackAngle || angle > attack.maxAttackAngle) continue;
-
+            if (angle < attack.minAttackAngle || angle > attack.maxAttackAngle) continue;
+            
             //check if the attack needs LOS and has it or not 
             if (attack.requiresLOS && Physics.Linecast(
                 enemy.transform.position, cm.currentTarget.transform.position,
                 WorldUtilityManager.instance.GetEnviroLayers()))
             {
+                
                 continue;
             }
-             
+
+            //skip if the move needs to be performed as part of a combo only 
+            if (attack.comboOnlyMove) continue;
+
             potentialAttacks.Add(attack);
         }
         //try to turn?
@@ -164,6 +168,7 @@ public class CombatStanceState : AIStates
             totalWeight += w;
 
         }
+        Debug.Log(potentialAttacks[0]);
 
         //Pick based on weights
         int roll = Random.Range(0, Mathf.Max(1, totalWeight));

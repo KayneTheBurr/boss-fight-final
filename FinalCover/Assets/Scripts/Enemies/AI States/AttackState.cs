@@ -26,21 +26,20 @@ public class AttackState : AIStates
 
         enemy.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0, false);
 
-        //perform a combo 
-        if (willPerformCombo && !hasPerformedCombo)
+        //if i attacked and have a combo move
+        if (hasPerformedAttack && currentAttack.comboAction != null && !hasPerformedCombo 
+            && enemy.enemyCombatManager.RollComboChance() && enemy.enemyCombatManager.canCombo)
         {
-            //
-            if (currentAttack.comboAction != null)
-            {
-                //if can combo 
-                //hasPerformedCombo = true;
-                //currentAttack.comboAction.AttemptToPerformAction(aiCharacter);
-            }
+            hasPerformedCombo = true;
+            currentAttack = currentAttack.comboAction;
+            enemy.enemyCombatManager.DisableCanDoCombo();
+            PerformAttack(enemy);
+            return this;
         }
 
         if (enemy.isPerformingAction) return this;
 
-        //
+        // First Attack played here
         if (!hasPerformedAttack)
         {
             if (enemy.enemyCombatManager.actionRecoveryTimer > 0) return this;
@@ -60,6 +59,7 @@ public class AttackState : AIStates
     protected void PerformAttack(EnemyCharacterManager enemy)
     {
         hasPerformedAttack = true;
+        hasPerformedCombo = false;
         currentAttack.AttemptToPerformAction(enemy);
 
         //set the recovery timer to the time associated with its current attack value 

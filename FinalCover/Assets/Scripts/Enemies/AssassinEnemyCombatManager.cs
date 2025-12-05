@@ -11,13 +11,15 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     public float circleDirChangeInterval = 3f;
 
     [Header("Assassin Dodge Tuning")]
-    public float dodgeChanceOnPlayerAttack = 0.3f;
+    [SerializeField] float reactionTime = 1f;
+    [SerializeField] float dodgeChanceOnPlayerAttack = 0.3f;
     public float dodgeCooldown = 1.5f;
     public bool hasAttemptedDodgeThisAttack = false;
 
     [HideInInspector] public float circleDir = 1f;
     private float circleTimer = 0f;
     private float dodgeCooldownTimer = 0f;
+    public float reactionTimer = 0f;
 
     protected override void Start()
     {
@@ -27,8 +29,16 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     protected override void LateUpdate()
     {
         base.LateUpdate();
+
         if (dodgeCooldownTimer > 0)
             dodgeCooldownTimer -= Time.deltaTime;
+
+        if(reactionTimer > 0)
+            reactionTimer -= Time.deltaTime;
+
+        else if(reactionTimer <= 0)
+            reactionTimer = reactionTime;
+        
     }
     public void HandleAssassinMovement(EnemyCharacterManager enemy)
     {
@@ -76,6 +86,6 @@ public class AssassinEnemyCombatManager : EnemyCombatManager
     }
     public virtual void PerformDodge(EnemyCharacterManager enemy)
     {
-        Debug.Log("I'm trying to dodge!");
+        //Debug.Log("I'm trying to dodge!");
     }
 }

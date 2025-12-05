@@ -35,7 +35,8 @@ public enum WeaponClass
     Fists,
     Katana, 
     Greatsword,
-    Bow
+    Bow,
+    DualSwords
 }
 public enum AttackType 
 {

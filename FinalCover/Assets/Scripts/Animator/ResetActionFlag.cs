@@ -35,8 +35,9 @@ public class ResetActionFlag : StateMachineBehaviour
         }
         if (enemy != null)
         {
-            Debug.Log("reset manual motion!");
+            
             enemy.enemyMovementManager.manualMotionActive = false;
+            enemy.enemyMovementManager.useAnimDuration = true;
         }
 
     }

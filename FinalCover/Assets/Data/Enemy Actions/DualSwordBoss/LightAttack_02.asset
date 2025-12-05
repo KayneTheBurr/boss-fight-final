@@ -15,8 +15,9 @@ MonoBehaviour:
   attackAnimation: Main_Light_Attack_02
   enemyAttackType: 0
   attackType: 1
-  comboAction: {fileID: 0}
-  attackTrackingSpeed: 20
+  comboAction: {fileID: 11400000, guid: f0e71f3bd7c800b4791fa21553aabb58, type: 2}
+  comboOnlyMove: 1
+  attackTrackingSpeed: 40
   attackWeight: 0
   cooldownTime: 0
   requiresLOS: 1
@@ -26,12 +27,32 @@ MonoBehaviour:
   minAttackDistance: 0
   maxAttackDistance: 3
   useManualMotion: 0
+  durationFromClipLength: 1
+  manualMovementDuration: 1
   manualMotionDistance: 1
   manualMotionDurationNormalized: 1
   manualMotionDirection: 0
   manualMotionCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

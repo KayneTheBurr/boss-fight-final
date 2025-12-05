@@ -9,11 +9,13 @@ public class EnemyMovementManager : CharacterMovementManager
     [SerializeField] float rotationSpeed = 5f;
 
     [Header("Manual Motion Values")]
+    public float motionMultiplier = 1f;
     public bool manualMotionActive = false;
+    public bool useAnimDuration = true;
     [SerializeField] float totalManualDistance = 1f;
     [SerializeField] float manualMotionDurationNormalized = 1f;
     [SerializeField] ManualMotionDirection manualMovementDir = ManualMotionDirection.LocalForward;
-    [SerializeField] AnimationCurve manualMotionCurve;
+    [SerializeField] AnimationCurve manualMotionCurve = AnimationCurve.Linear(0,0,1,1);
     private Vector3 manualMovementVector;
     private float manualMotionDuration = 0.01f;
     private float manualMotionTimer = 0f;
@@ -98,6 +100,7 @@ public class EnemyMovementManager : CharacterMovementManager
     {
         if (manualMotionActive) return;
 
+        
         //if in attack state, get the manualTimeValues from the currentAttack
         if (enemy.currentState is AttackState)
         {
@@ -105,6 +108,8 @@ public class EnemyMovementManager : CharacterMovementManager
             manualMotionDurationNormalized = enemy.attack.currentAttack.manualMotionDurationNormalized;
             manualMovementDir = enemy.attack.currentAttack.manualMotionDirection;
             manualMotionCurve = enemy.attack.currentAttack.manualMotionCurve;
+            useAnimDuration = enemy.attack.currentAttack.durationFromClipLength;
+            manualMotionDuration = enemy.attack.currentAttack.manualMovementDuration;
         }
 
         //if in CombatStance, then it isnt an attack, so use the values already existing
@@ -114,18 +119,28 @@ public class EnemyMovementManager : CharacterMovementManager
             //all values are set by the functions that call the functions (dodge, etc)
         }
 
+        //extra multiplier for buffs/phases/etc
+        totalManualDistance *= motionMultiplier;
+
+        //get the actual direction of movement
         manualMovementVector = GetManualMotionDirection(enemy, manualMovementDir);
 
-        //using the other values, determine the duration to space the movement out over
-        Animator anim = enemy.animator;
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        if (useAnimDuration) //calculate duration from the animation clip
+        {
 
-        Debug.Log(stateInfo.fullPathHash);
+            //using the other values, determine the duration to space the movement out over
+            Animator anim = enemy.animator;
+            AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
-        //duration = find how much time is left in the current amin clip
-        float clipLength = stateInfo.length / Mathf.Max(0.01f, anim.speed); ;
-        
-        manualMotionDuration = clipLength * manualMotionDurationNormalized;
+            //duration = find how much time is left in the current amin clip
+            float clipLength = stateInfo.length / Mathf.Max(0.01f, anim.speed); ;
+
+            manualMotionDuration = clipLength * manualMotionDurationNormalized;
+        }
+        else //i need to have passed the duration manually instead
+        {
+            //use the already passed in duration, i f i need to get it a different way do it here
+        }
 
         //in case the duration is too short
         if (manualMotionDuration < 0.001f) manualMotionDuration = 0.001f;
@@ -139,8 +154,6 @@ public class EnemyMovementManager : CharacterMovementManager
         {
             enemy.navMeshAgent.isStopped = true;
         }
-
-        Debug.Log(manualMotionDuration);
 
         // make sure root motoion is off
         enemy.applyRootMotion = false;

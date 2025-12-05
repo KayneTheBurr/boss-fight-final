@@ -8,8 +8,16 @@ public class MeleeWeaponDamageCollider : DamageCollider
     [Header("Weapon Attack Modifiers")]
     public float light_Attack_01_DamageModifier;
     public float light_Attack_02_DamageModifier;
+    public float light_Attack_03_DamageModifier;
+    public float light_Attack_04_DamageModifier;
+    public float light_Attack_05_DamageModifier;
+
     public float heavy_Attack_01_DamageModifier;
     public float heavy_Attack_02_DamageModifier;
+    public float heavy_Attack_03_DamageModifier;
+    public float heavy_Attack_04_DamageModifier;
+    public float heavy_Attack_05_DamageModifier;
+    
     public float charge_Attack_01_DamageModifier;
     public float charge_Attack_02_DamageModifier;
     public float light_Run_Attack_01_DamageModifier;
@@ -70,7 +78,8 @@ public class MeleeWeaponDamageCollider : DamageCollider
         damageEffect.decayDamage = decayDamage;
 
         damageEffect.contactPoint = contactPoint;
-        damageEffect.angleHitFrom = Vector3.SignedAngle(characterCausingDamage.transform.forward, damageTarget.transform.forward, Vector3.up);
+        damageEffect.angleHitFrom = Vector3.SignedAngle(
+            characterCausingDamage.transform.forward, damageTarget.transform.forward, Vector3.up);
 
 
         switch (characterCausingDamage.characterCombatManager.currentAttackType)

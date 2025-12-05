@@ -49,11 +49,21 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
     }
     public void SetLeftSwordCollider()
     {
-        leftSwordCollider.physicalDamage = physicalDamage;
+        leftSwordCollider = enemy.enemyEquipmentManager.GetLeftWeaponCollider();
     }
     public void SetRightSwordCollider()
     {
-        rightSwordCollider.physicalDamage = physicalDamage;
+        rightSwordCollider = enemy.enemyEquipmentManager.GetRightWeaponCollider();
+    }
+    public void OpenBothSwordColliders()
+    {
+        OpenLeftSwordCollider();
+        OpenRightSwordCollider();
+    }
+    public void CloseBothSwordColliders()
+    {
+        CloseLeftSwordCollider();
+        CloseRightSwordCollider();
     }
     public void OpenLeftSwordCollider()
     {
@@ -80,7 +90,7 @@ public class DualSwordBossCombatManager : AssassinEnemyCombatManager
         
         if (Mathf.Abs(viewableAngle) < 70) return;
 
-        Debug.Log($"Turn bc my angle is {viewableAngle}!");
+        //Debug.Log($"Turn bc my angle is {viewableAngle}!");
 
         if (enemy.enemyMovementManager.isMoving.GetBool())
         {

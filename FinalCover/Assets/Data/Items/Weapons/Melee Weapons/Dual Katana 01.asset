@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6747da471adf1d4da3c6b77d10e6526, type: 3}
+  m_Name: Dual Katana 01
+  m_EditorClassIdentifier: 
+  itemID: WPN_KAT_001
+  itemName: Basic Katana
+  itemIcon: {fileID: 0}
+  itemDescription: 
+  weaponOverrideAnimator: {fileID: 0}
+  weaponModel: {fileID: 3802664006396213514, guid: 31038615e2c37694f949fa218549938c, type: 3}
+  weaponClass: 1
+  strREQ: 0
+  agiREQ: 0
+  arcREQ: 0
+  essREQ: 0
+  cunREQ: 0
+  omnREQ: 0
+  physicalDamage: 60
+  fireDamage: 0
+  lightningDamage: 0
+  iceDamage: 0
+  poisonDamage: 0
+  decayDamage: 0
+  shadowDamage: 0
+  light_Attack_01_DamageModifier: 0.8
+  light_Attack_02_DamageModifier: 0.8
+  light_Attack_03_DamageModifier: 1
+  light_Attack_04_DamageModifier: 1.2
+  light_Attack_05_DamageModifier: 0.9
+  heavy_Attack_01_DamageModifier: 1.1
+  heavy_Attack_02_DamageModifier: 1.1
+  heavy_Attack_03_DamageModifier: 2
+  heavy_Attack_04_DamageModifier: 3
+  heavy_Attack_05_DamageModifier: 1.4
+  charge_Attack_01_DamageModifier: 2
+  charge_Attack_02_DamageModifier: 2.2
+  charge_Attack_03_DamageModifier: 2
+  charge_Attack_04_DamageModifier: 2.2
+  charge_Attack_05_DamageModifier: 2.2
+  light_Run_Attack_01_DamageModifier: 0.75
+  light_Roll_Attack_01_DamageModifier: 1
+  light_BackStep_Attack_01_DamageModifier: 1.4
+  poiseDamage: 5
+  baseStaminaCost: 12
+  lightAttackStaminaCostModifier: 0.5
+  heavyAttackStaminaCostModifier: 1.2
+  chargeAttackStaminaCostModifier: 2
+  lightRunAttackStaminaCostModifier: 0.5
+  lightRollAttackStaminaCostModifier: 0.5
+  lightBackStepAttackStaminaCostModifier: 0
+  oh_r1_Action: {fileID: 11400000, guid: 41650bf608d56d44795d0fd19445cf2f, type: 2}
+  oh_r2_Action: {fileID: 11400000, guid: a5fc1698ef9c11043832e01e3b303ebd, type: 2}
+  whooshes: []

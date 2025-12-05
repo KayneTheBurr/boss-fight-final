@@ -16,6 +16,7 @@ MonoBehaviour:
   enemyAttackType: 0
   attackType: 0
   comboAction: {fileID: 11400000, guid: cd8ea352ed6e37145bcd496edd2adeb4, type: 2}
+  comboOnlyMove: 0
   attackTrackingSpeed: 20
   attackWeight: 0
   cooldownTime: 0
@@ -23,15 +24,35 @@ MonoBehaviour:
   actionRecoveryTime: 1.5
   minAttackAngle: -35
   maxAttackAngle: 35
-  minAttackDistance: 0
-  maxAttackDistance: 3
+  minAttackDistance: 2
+  maxAttackDistance: 4
   useManualMotion: 0
+  durationFromClipLength: 1
+  manualMovementDuration: 1
   manualMotionDistance: 1
   manualMotionDurationNormalized: 1
   manualMotionDirection: 0
   manualMotionCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

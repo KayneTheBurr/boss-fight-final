@@ -37,7 +37,7 @@ public class PursueTargetState : AIStates
                 enemy.transform.position, enemy.enemyCombatManager.currentTarget.transform.position))
         {
             //we have a ranged attack available, go to cvombat stance to use it 
-            
+            //Debug.Log("I have a ranged attack,lets use it");
             return SwitchState(enemy, enemy.combatStance);
         }
 

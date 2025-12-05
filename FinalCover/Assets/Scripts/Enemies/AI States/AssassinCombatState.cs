@@ -42,13 +42,10 @@ public class AssassinCombatState : CombatStanceState
         cm.HandleAssassinMovement(enemy);
 
         //maybe see what player is doing and try to dodge here?
-        if(cm.currentTarget != null && cm.currentTarget.isPerformingAction)
+        if(cm.currentTarget != null && cm.reactionTimer <= 0)
         {
-            //only get to roll once for dodge per attack
-            if (!cm.hasAttemptedDodgeThisAttack)
+            if(cm.currentTarget.isPerformingAction)
             {
-                cm.hasAttemptedDodgeThisAttack = true;
-
                 if (cm.TryDodge(enemy))
                 {
                     cm.PerformDodge(enemy);
@@ -56,6 +53,25 @@ public class AssassinCombatState : CombatStanceState
                 }
             }
         }
+
+
+
+
+
+        //if(cm.currentTarget != null && cm.currentTarget.isPerformingAction)
+        //{
+        //    //only get to roll once for dodge per attack
+        //    if (!cm.hasAttemptedDodgeThisAttack)
+        //    {
+        //        cm.hasAttemptedDodgeThisAttack = true;
+
+        //        if (cm.TryDodge(enemy))
+        //        {
+        //            cm.PerformDodge(enemy);
+        //            return this;
+        //        }
+        //    }
+        //}
         else
         {
             // target is not performing an action anymore, reset for next attack
@@ -80,11 +96,8 @@ public class AssassinCombatState : CombatStanceState
             return SwitchState(enemy, enemy.attack);
         }
 
-
-
         //else stay in combat until attack made
         return this;
     }
 
-    
 }

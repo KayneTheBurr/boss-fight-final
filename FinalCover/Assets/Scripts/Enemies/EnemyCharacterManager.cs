@@ -12,7 +12,7 @@ public class EnemyCharacterManager : CharacterManager
     [HideInInspector] public EnemyAnimationManager enemyAnimationManager;
     [HideInInspector] public EnemyMovementManager enemyMovementManager;
     [HideInInspector] public EnemyStatsManager enemyStatsManager;
-
+    [HideInInspector] public EnemyEquipmentManager enemyEquipmentManager;
 
     [Header("NavMesh Agent")]
     public NavMeshAgent navMeshAgent;
@@ -47,7 +47,7 @@ public class EnemyCharacterManager : CharacterManager
         enemyAnimationManager = GetComponent<EnemyAnimationManager>();
         enemyMovementManager = GetComponent<EnemyMovementManager>();
         enemyStatsManager = GetComponent<EnemyStatsManager>();
-
+        enemyEquipmentManager = GetComponent<EnemyEquipmentManager>();
         
 
         idle = Instantiate(idle);

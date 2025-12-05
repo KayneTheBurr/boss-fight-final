@@ -20,6 +20,9 @@ public class EnemyCombatManager : CharacterCombatManager
     public float maxFOV = 35;
 
     [Header("Attacks")]
+    public bool canCombo;
+    public float comboChance = 0.3f;
+    public float addedComboChance = 0f;
     public List<EnemyAttackAction> availableAttacks = new();
 
     public Dictionary<EnemyAttackAction, float> cooldownTracker = new();
@@ -146,6 +149,8 @@ public class EnemyCombatManager : CharacterCombatManager
         //check if we can rotate 
         if (!aiCharacter.canRotate) return;
 
+        Debug.Log("Rotate During attack?");
+
         //rotate towards the target at a specified rotation speed during specific frames
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         targetDirection.y = 0;
@@ -155,9 +160,9 @@ public class EnemyCombatManager : CharacterCombatManager
             targetDirection = aiCharacter.transform.forward;
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        //aiCharacter.transform.rotation = Quaternion.Slerp(aiCharacter.transform.rotation, targetRotation, attackTrackingSpeed);
-        aiCharacter.transform.rotation = Quaternion.RotateTowards(
-            aiCharacter.transform.rotation, targetRotation, currentAttack.attackTrackingSpeed * Time.deltaTime);
+        aiCharacter.transform.rotation = Quaternion.Slerp(aiCharacter.transform.rotation, targetRotation, currentAttack.attackTrackingSpeed);
+        //aiCharacter.transform.rotation = Quaternion.RotateTowards(
+        //    aiCharacter.transform.rotation, targetRotation, currentAttack.attackTrackingSpeed * Time.deltaTime);
     }
     public void HandleActionRecovery(EnemyCharacterManager aICharacter)
     {
@@ -229,5 +234,23 @@ public class EnemyCombatManager : CharacterCombatManager
     {
         if (cooldownTracker[action] == 0) return true;
         else return false;
+    }
+    public override void EnableCanDoCombo()
+    {
+        base.EnableCanDoCombo();
+        canCombo = true;
+    }
+    public override void DisableCanDoCombo()
+    {
+        base.DisableCanDoCombo();
+        canCombo = false;
+    }
+    public bool RollComboChance()
+    {
+        var comboRoll = Random.value;
+        
+        if (comboRoll > comboChance + addedComboChance) return false;
+
+        return true;
     }
 }

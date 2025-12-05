@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 349499614007608093}
   - component: {fileID: 2101307598839019607}
   - component: {fileID: 671200738196273183}
-  - component: {fileID: 3644701561360326791}
+  - component: {fileID: 8466736395763783022}
   - component: {fileID: 8701199876334549992}
   - component: {fileID: 5959200448840655477}
   - component: {fileID: 6069015779058810982}
@@ -293,14 +293,17 @@ MonoBehaviour:
   minFOV: -35
   maxFOV: 35
   availableAttacks: []
-  idealRange: 4
-  minRange: 3
-  maxRange: 7
+  idealRange: 5
+  minRange: 4
+  maxRange: 8
   circleOffsetDistance: 8
   circleDirChangeInterval: 3
-  dodgeChanceOnPlayerAttack: 0.3
+  reactionTime: 0.5
+  dodgeChanceOnPlayerAttack: 1
   dodgeCooldown: 1.5
+  hasAttemptedDodgeThisAttack: 0
   circleDir: 1
+  reactionTimer: 0
   currentPhase: 0
   rightSwordCollider: {fileID: 1097359141205640526}
   leftSwordCollider: {fileID: 612934231945546424}
@@ -310,15 +313,107 @@ MonoBehaviour:
   lightAttack_03_DamageModifier: 1
   drillDash_DamageModifier: 1.5
   aoeSpinSlash_DamageModifier: 1.5
-  turnRightIdle: Idle_Turn_R90
-  turnLeftIdle: Idle_Turn_L90
-  turn180Idle: Idle_Turn_180
-  turnRightWalk: Walk_Turn_R90
-  turnLeftWalk: Walk_Turn_L90
-  turn180Walk: Walk_Turn_180
-  turnRightJog: Jog_Turn_R90
-  turnLeftJog: Jog_Turn_L90
-  turn180Jog: Jog_Turn_180
+  backDodgeAngle: 5
+  frontDodgeDistance: 5
+  frontDodgeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  backDodgeDistance: 5
+  backDodgeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  leftDodgeDistance: 10
+  leftDodgeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rightDodgeDistance: 10
+  rightDodgeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   arenaRadius: 16
   arenaCenter: {fileID: 0}
 --- !u!114 &3526589514155635505
@@ -354,6 +449,36 @@ MonoBehaviour:
   isDodging: 0
   isFlying: 0
   rotationSpeed: 5
+  motionMultiplier: 1
+  manualMotionActive: 0
+  useAnimDuration: 1
+  totalManualDistance: 1
+  manualMotionDurationNormalized: 1
+  manualMovementDir: 0
+  manualMotionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5803860950153813797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f339a1571f910774295169787b90e754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3644701561360326791
+--- !u!114 &8466736395763783022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,9 +588,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 368796636706591993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88fb888c7c79e743beac296e8f67a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: b878e52a6f9d46d439f6ddb8241f2d08, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyEquipmentManager
+  rightHandSlot: {fileID: 0}
+  leftHandSlot: {fileID: 0}
+  rightWeaponManager: {fileID: 0}
+  leftWeaponManager: {fileID: 0}
+  currentRightHandWeapon: {fileID: 0}
+  currentLeftHandWeapon: {fileID: 0}
+  rightHandWeaponModel: {fileID: 0}
+  leftHandWeaponModel: {fileID: 0}
 --- !u!114 &8701199876334549992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,10 +742,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368796636706591993}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1954,6 +2087,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1975,6 +2110,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -3391,6 +3527,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3412,6 +3550,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -3558,7 +3697,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3618,6 +3757,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3640,6 +3781,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

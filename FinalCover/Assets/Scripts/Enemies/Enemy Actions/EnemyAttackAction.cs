@@ -10,6 +10,7 @@ public class EnemyAttackAction : ScriptableObject
 
     [Header("Combo Actions")]
     public EnemyAttackAction comboAction; //the combo action of this attack action
+    public bool comboOnlyMove = false;
 
     [Header("Attack Rotation Speed")]
     public float attackTrackingSpeed = 20;
@@ -26,10 +27,12 @@ public class EnemyAttackAction : ScriptableObject
 
     [Header("Manual Motion (Rootmotion override)")]
     public bool useManualMotion = false;
+    public bool durationFromClipLength = true;
+    public float manualMovementDuration = 1f;
     public float manualMotionDistance = 1f;
     public float manualMotionDurationNormalized = 1f;
     public ManualMotionDirection manualMotionDirection = ManualMotionDirection.LocalForward;
-    public AnimationCurve manualMotionCurve;
+    public AnimationCurve manualMotionCurve = AnimationCurve.Linear(0,0,1,1);
 
     public void AttemptToPerformAction(EnemyCharacterManager enemy)
     {

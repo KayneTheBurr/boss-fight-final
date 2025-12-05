@@ -253,7 +253,7 @@ public class InputManager : MonoBehaviour
 
         moveAmount = Mathf.Clamp01(Mathf.Abs(vertical_Input) + Mathf.Abs(horizontal_Input));
 
-        if (moveAmount <= 0.5 && moveAmount > 0)
+        if (moveAmount <= 0.5 && moveAmount > 0.1)
         {
             moveAmount = 0.5f;
         }
